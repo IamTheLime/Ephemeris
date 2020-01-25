@@ -12,7 +12,7 @@
           <p class="is-size-4">github</p>
           <p class="is-size-4">email ⌲</p>
           <button v-on:click="testClick()">
-            {{ getColour() }}
+            {{ colour }}
           </button>
         </div>
         <div class="tile is-child"></div>

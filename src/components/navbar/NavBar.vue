@@ -8,7 +8,7 @@
     <div class="level-right">
       <p class="level-item"><strong>blog</strong></p>
       <p class="level-item"><strong>about</strong></p>
-      <p class="level-item">🌙</p>
+      <p class="level-item">🌙{{ colour }}</p>
     </div>
   </nav>
 </template>

@@ -6,7 +6,7 @@ export default class Home extends Vue {
   testClick() {
     StyleModule.toggle();
   }
-  getColour() {
+  get colour() {
     return StyleModule.colourMode;
   }
 }
