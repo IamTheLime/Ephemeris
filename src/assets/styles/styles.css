@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Iosevka Type Slab";
+  src: url("../fonts/iosevka.woff");
+}
+
+body {
+  background-color: #F9EAE6 important;
+}
+
+#app {
+  font-family: "Iosevka";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 20px auto;
+  max-width: 80vw;
+}
+
+p {
+  color: #1D253D;
+}
+
+.inverted {
+  padding: 10px;
+  background-color: #202020;
+}
