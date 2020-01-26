@@ -3,8 +3,8 @@
   src: url("../fonts/iosevka.woff");
 }
 
-body {
-  background-color: #F9EAE6 important;
+html {
+  background-color: #fafafa !important;
 }
 
 #app {
@@ -16,7 +16,17 @@ body {
 }
 
 p {
-  color: #1D253D;
+  color: #363636;
+  width: fit-content;
+}
+
+.social-media {
+  color: #292929;
+}
+
+.clickable:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .inverted {
