@@ -1,35 +1,40 @@
 @font-face {
-  font-family: "Iosevka Type Slab";
-  src: url("../fonts/iosevka.woff");
+    font-family: 'Iosevka Type Slab';
+    src: url('../fonts/iosevka.woff');
+}
+
+:root {
+    --main-text-color-light: #363636;
+    --main-text-color-dark: #fafafa;
+    --secondary-text-color-light: #292929;
+    --secondary-text-color-dark: #cfcfcf;
+
+    --main-background-colour-light: #fafafa;
+    --main-background-colour-dark: #363636;
 }
 
 html {
-  background-color: #fafafa !important;
+    background-color: var(--main-background-colour-light) !important;
 }
 
 #app {
-  font-family: "Iosevka";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 20px auto;
-  max-width: 80vw;
+    font-family: 'Iosevka';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 20px auto;
+    max-width: 80vw;
 }
 
 p {
-  color: #363636;
-  width: fit-content;
+    color: var(--main-text-color-light);
+    width: fit-content;
 }
 
 .social-media {
-  color: #292929;
+    color: var(--secondary-text-color-light);
 }
 
 .clickable:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.inverted {
-  padding: 10px;
-  background-color: #202020;
+    text-decoration: underline;
+    cursor: pointer;
 }

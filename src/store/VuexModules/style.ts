@@ -1,12 +1,12 @@
-import store from '@/store/store'
+import store from '@/store/store';
 import {
     VuexModule,
     Module,
     Mutation,
     Action,
     getModule,
-} from 'vuex-module-decorators'
-import { StyleGuide, ColourMode } from '@/types/Styleguide'
+} from 'vuex-module-decorators';
+import { StyleGuide, ColourMode } from '@/types/Styleguide';
 
 @Module({
     store,
@@ -17,7 +17,7 @@ import { StyleGuide, ColourMode } from '@/types/Styleguide'
 class StyleModule extends VuexModule {
     private style: StyleGuide = {
         colourMode: ColourMode.LIGHT,
-    }
+    };
 
     @Mutation
     toggleColourMode(toggleSwitch: boolean): void {
@@ -25,18 +25,18 @@ class StyleModule extends VuexModule {
             this.style.colourMode =
                 this.style.colourMode === ColourMode.LIGHT
                     ? ColourMode.DARK
-                    : ColourMode.LIGHT
+                    : ColourMode.LIGHT;
         }
     }
 
     get colourMode(): ColourMode {
-        return this.style.colourMode
+        return this.style.colourMode;
     }
 
     @Action({ commit: 'toggleColourMode' })
     toggle() {
-        return true
+        return true;
     }
 }
 
-export default getModule(StyleModule)
+export default getModule(StyleModule);

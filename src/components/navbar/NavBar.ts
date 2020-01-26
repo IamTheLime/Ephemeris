@@ -1,18 +1,20 @@
-import { Component, Prop, Vue } from 'vue-property-decorator'
-import StyleModule from '@/store/VuexModules/style'
-import { ColourMode } from '@/types/Styleguide'
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import StyleModule from '@/store/VuexModules/style';
+import { ColourMode } from '@/types/Styleguide';
 
 @Component
 export default class NavBar extends Vue {
+    displayHamburguerMenu: boolean = false;
+
     get colour() {
-        return StyleModule.colourMode
+        return StyleModule.colourMode;
     }
 
     get ColourMode() {
-        return ColourMode
+        return ColourMode;
     }
 
     toggleColourMode() {
-        StyleModule.toggle()
+        StyleModule.toggle();
     }
 }
