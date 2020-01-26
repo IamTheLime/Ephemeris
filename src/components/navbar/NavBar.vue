@@ -1,22 +1,19 @@
 <template>
     <!-- Main container -->
-    <nav class="columns">
-        <!-- Left side -->
-        <div class="column columns">
-            <p class="column is-size-5 clickable">Tiago Lima</p>
-            <div class="column display-mobile">
-                <p class="is-size-5 display-mobile">
-                    <font-awesome-icon :icon="['fas', 'hamburger']" />
-                </p>
-            </div>
+    <nav class="columns is-mobile">
+        <p class="column is-size-5 clickable">Tiago Lima</p>
+        <div class="column display-mobile">
+            <p class="is-size-5 display-mobile is-narrow">
+                <font-awesome-icon :icon="['fas', 'hamburger']" />
+            </p>
         </div>
 
         <!-- Right side -->
-        <div class="column is-four-fifths columns display-desktop">
-            <p class="column is-size-5 clickable">blog</p>
-            <p class="column is-size-5 clickable">about</p>
+        <div class="display-desktop column columns is-mobile is-narrow">
+            <p class="column is-size-5 clickable is-narrow">blog</p>
+            <p class="column is-size-5 clickable is-narrow">about</p>
 
-            <p @click="toggleColourMode" class="column clickable">
+            <p @click="toggleColourMode" class="column clickable is-narrow">
                 <font-awesome-icon v-if="colour === ColourMode.DARK" :icon="['fas', 'sun']" />
                 <font-awesome-icon v-if="colour === ColourMode.LIGHT" :icon="['fas', 'moon']" />
             </p>
@@ -69,7 +66,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .display-desktop {
+    .display-desktop.is-mobile {
         display: none;
     }
 }

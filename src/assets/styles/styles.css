@@ -38,3 +38,7 @@ p {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.auto-margin-left {
+    margin-left: auto;
+}
