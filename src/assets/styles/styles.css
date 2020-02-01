@@ -1,45 +1,81 @@
 @font-face {
     font-family: 'Roboto', monospace;
-    src: url('https://fonts.googleapis.com/css?family=Montserrat|Roboto:500,500i,700,700i&display=swap');
+    src: url('https://fonts.googleapis.com/css?family=Roboto:500,500i,700,700i&display=swap');
 }
 
 :root {
     --main-text-color-light: #363636;
     --main-text-color-dark: #fafafa;
     --secondary-text-color-light: #292929;
-    --secondary-text-color-dark: #cfcfcf;
+    --secondary-text-color-dark: #e752a1;
+
+    --caret-colour: #77f286;
 
     --main-background-colour-light: #fafafa;
-    --main-background-colour-dark: #363636;
-}
-
-html {
-    background-color: var(--main-background-colour-light) !important;
+    --main-background-colour-dark: #27273a;
 }
 
 #app {
+    position: absolute;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#app.light {
+    background-color: var(--main-background-colour-light) !important;
+    transition: background-color 0.5s ease;
+}
+
+#app.dark {
+    background-color: var(--main-background-colour-dark) !important;
+    transition: background-color 0.5s ease;
+}
+
+.width-wrapper {
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayopacity;
     margin: 20px auto;
     max-width: 80vw;
+}
+
+#app.light p {
+    color: var(--main-text-color-light);
+    transition: color 0.5s ease;
+}
+
+#app.light .social-media {
+    color: var(--secondary-text-color-light);
+    transition: color 0.5s ease;
+}
+
+#app.dark p {
+    color: var(--main-text-color-dark);
+    transition: color 0.5s ease;
+}
+
+#app.dark .social-media {
+    color: var(--secondary-text-color-dark);
+    transition: color 0.5s ease;
 }
 
 p {
     font-family: 'Roboto', monospace;
     font-weight: 300;
     font-size: 18px;
-    color: var(--main-text-color-light);
     width: fit-content;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
 }
 
 .navbar-text {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-.social-media {
-    color: var(--secondary-text-color-light);
+    font-family: 'Roboto', monospace;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .clickable:hover {
@@ -49,4 +85,27 @@ p {
 
 .auto-margin-left {
     margin-left: auto;
+}
+
+span.caret {
+    top: 2px;
+    left: 1px;
+    width: 10px;
+    height: 18px;
+    position: relative;
+    animation: pulse 1s infinite alternate-reverse
+        cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation-fill-mode: forwards;
+    text-decoration: none;
+    display: inline-block;
+    background-color: var(--caret-colour);
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+    }
 }

@@ -1,7 +1,10 @@
 <template>
     <!-- Main container -->
     <nav class="columns is-mobile">
-        <p class="column clickable navbar-text">Tiago Lima</p>
+        <p class="column clickable navbar-text">
+            <router-link to="/home">Tiago Lima</router-link>
+            <span class="caret"></span>
+        </p>
         <div class="row display-mobile">
             <p class="is-size-4 display-mobile is-narrow">
                 <font-awesome-icon :icon="['fas', 'hamburger']" />
@@ -10,24 +13,41 @@
 
         <!-- Right side -->
         <div class="display-desktop column columns is-mobile is-narrow">
-            <p class="column is-size-5 clickable is-narrow navbar-text">blog</p>
-            <p class="column is-size-5 clickable is-narrow navbar-text">about</p>
+            <p class="column is-size-5 clickable is-narrow navbar-text">
+                <router-link to="/blog">blog</router-link>
+            </p>
 
             <p @click="toggleColourMode" class="column clickable is-narrow">
-                <font-awesome-icon v-if="colour === ColourMode.DARK" :icon="['fas', 'sun']" />
-                <font-awesome-icon v-if="colour === ColourMode.LIGHT" :icon="['fas', 'moon']" />
+                <font-awesome-icon
+                    v-if="colour === ColourMode.DARK"
+                    :icon="['fas', 'sun']"
+                />
+                <font-awesome-icon
+                    v-if="colour === ColourMode.LIGHT"
+                    :icon="['fas', 'moon']"
+                />
             </p>
         </div>
         <div
             class="level is-vertical display-mobile fixed_position"
             v-bind:class="{ display: !displayHamburguerMenu }"
         >
-            <p class="is-size-5 clickable level-right">blog</p>
-            <p class="is-size-5 clickable level-right">about</p>
+            <p class="is-size-5 clickable level-right">
+                <router-link to="/blog">blog</router-link>
+            </p>
 
-            <p @click="toggleColourMode" class="is-size-5 clickable level-right">
-                <font-awesome-icon v-if="colour === ColourMode.DARK" :icon="['fas', 'sun']" />
-                <font-awesome-icon v-if="colour === ColourMode.LIGHT" :icon="['fas', 'moon']" />
+            <p
+                @click="toggleColourMode"
+                class="is-size-5 clickable level-right"
+            >
+                <font-awesome-icon
+                    v-if="colour === ColourMode.DARK"
+                    :icon="['fas', 'sun']"
+                />
+                <font-awesome-icon
+                    v-if="colour === ColourMode.LIGHT"
+                    :icon="['fas', 'moon']"
+                />
             </p>
         </div>
     </nav>
