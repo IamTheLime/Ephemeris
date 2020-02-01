@@ -1,17 +1,17 @@
 <template>
     <!-- Main container -->
     <nav class="columns is-mobile">
-        <p class="column is-size-5 clickable">Tiago Lima</p>
-        <div class="column display-mobile">
-            <p class="is-size-5 display-mobile is-narrow">
+        <p class="column clickable navbar-text">Tiago Lima</p>
+        <div class="row display-mobile">
+            <p class="is-size-4 display-mobile is-narrow">
                 <font-awesome-icon :icon="['fas', 'hamburger']" />
             </p>
         </div>
 
         <!-- Right side -->
         <div class="display-desktop column columns is-mobile is-narrow">
-            <p class="column is-size-5 clickable is-narrow">blog</p>
-            <p class="column is-size-5 clickable is-narrow">about</p>
+            <p class="column is-size-5 clickable is-narrow navbar-text">blog</p>
+            <p class="column is-size-5 clickable is-narrow navbar-text">about</p>
 
             <p @click="toggleColourMode" class="column clickable is-narrow">
                 <font-awesome-icon v-if="colour === ColourMode.DARK" :icon="['fas', 'sun']" />
