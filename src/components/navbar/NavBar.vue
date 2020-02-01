@@ -1,10 +1,12 @@
 <template>
     <!-- Main container -->
     <nav class="columns is-mobile">
-        <p class="column clickable navbar-text">
-            <router-link to="/home">Tiago Lima</router-link>
-            <span class="caret"></span>
-        </p>
+        <div class="column">
+            <p class="clickable navbar-text me">
+                <router-link class="green" to="/home">Tiago Lima</router-link>
+                <span class="caret"></span>
+            </p>
+        </div>
         <div class="row display-mobile">
             <p class="is-size-4 display-mobile is-narrow">
                 <font-awesome-icon :icon="['fas', 'hamburger']" />
@@ -57,9 +59,50 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.name {
-    text-decoration: underline;
-    color: white;
+.me:hover {
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+}
+
+.green:hover::after {
+    left: 0;
+    z-index: -1;
+    position: absolute;
+    background-color: var(--caret-colour);
+    color: var(--caret-colour);
+    content: 'Tiago Lima';
+    animation: highlightAnim 200ms 1 forwards;
+    animation-timing-function: cubic-bezier(0.72, -0.03, 0.4, 1.57);
+    transform-origin: 100%;
+    opacity: 0.9;
+}
+
+@keyframes highlightAnim {
+    from {
+        transform: translate(7px, 0px) scale(0, 0.6);
+    }
+    to {
+        transform: translate(7px, 0px) scale(1.1, 0.6);
+    }
+}
+
+.green:hover ~ .caret {
+    animation: disappearAnim 50ms 1 forwards;
+    animation-timing-function: ease-out;
+    transform-origin: 0%;
+    opacity: 0.9;
+}
+
+@keyframes disappearAnim {
+    from {
+        z-index: -1;
+        transform: translate(-5px, 0px) scale(1, 1);
+    }
+    to {
+        z-index: -1;
+        transform: translate(-5px, 0px) scale(0, 1);
+    }
 }
 
 .level-left {
@@ -82,7 +125,7 @@
     height: 100%;
     width: 100%;
     padding-right: 40px;
-    background-color: var(--main-background-colour-light);
+    background-color: inherit;
 }
 
 @media only screen and (max-width: 768px) {
