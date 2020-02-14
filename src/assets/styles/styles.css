@@ -8,9 +8,7 @@
     --main-text-color-dark: #fafafa;
     --secondary-text-color-light: #292929;
     --secondary-text-color-dark: #e752a1;
-
     --caret-colour: #77f286;
-
     --main-background-colour-light: #fafafa;
     --main-background-colour-dark: #27273a;
 }
@@ -49,6 +47,12 @@
     transition: color 0.5s ease;
 }
 
+#app.light .fixed-position {
+    color: var(--secondary-text-color-light);
+    background-color: var(--main-background-colour-light);
+    transition: all 0.5s ease;
+}
+
 #app.dark p {
     color: var(--main-text-color-dark);
     transition: color 0.5s ease;
@@ -59,7 +63,13 @@
     transition: color 0.5s ease;
 }
 
-p {
+#app.dark .fixed-position {
+    color: var(--secondary-text-color-dark);
+    background-color: var(--main-background-colour-dark);
+    transition: all 0.5s ease;
+}
+
+p, a {
     font-family: 'Roboto', monospace;
     font-weight: 300;
     font-size: 18px;
@@ -87,14 +97,17 @@ a {
     margin-left: auto;
 }
 
+p>a {
+    font-size: inherit;
+}
+
 span.caret {
     top: 2px;
     left: 1px;
     width: 10px;
     height: 18px;
     position: relative;
-    animation: pulse 1s infinite alternate-reverse
-        cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation: pulse 1s infinite alternate-reverse cubic-bezier(0.645, 0.045, 0.355, 1);
     animation-fill-mode: forwards;
     text-decoration: none;
     display: inline-block;

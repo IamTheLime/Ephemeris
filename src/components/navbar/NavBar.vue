@@ -2,54 +2,44 @@
     <!-- Main container -->
     <nav class="columns is-mobile">
         <div class="column">
-            <p class="clickable navbar-text me">
+            <p @click="disableMenuDisplay" class="clickable navbar-text me">
                 <router-link class="green" to="/home">Tiago Lima</router-link>
                 <span class="caret"></span>
             </p>
         </div>
         <div class="row display-mobile">
-            <p class="is-size-4 display-mobile is-narrow">
-                <font-awesome-icon :icon="['fas', 'hamburger']" />
-            </p>
+            <transition name="bounce">
+                <p
+                    class="is-size-4 display-mobile is-narrow clickable"
+                    @click="displayHamburguerMenu=!displayHamburguerMenu"
+                >
+                    <font-awesome-icon :icon="['fas', 'hamburger']" />
+                </p>
+            </transition>
         </div>
 
         <!-- Right side -->
         <div class="display-desktop column columns is-mobile is-narrow">
-            <p class="column is-size-5 clickable is-narrow navbar-text">
+            <p @click="disableMenuDisplay" class="column is-size-5 clickable is-narrow navbar-text">
                 <router-link to="/blog">blog</router-link>
             </p>
 
             <p @click="toggleColourMode" class="column clickable is-narrow">
-                <font-awesome-icon
-                    v-if="colour === ColourMode.DARK"
-                    :icon="['fas', 'sun']"
-                />
-                <font-awesome-icon
-                    v-if="colour === ColourMode.LIGHT"
-                    :icon="['fas', 'moon']"
-                />
+                <font-awesome-icon v-if="colour === ColourMode.DARK" :icon="['fas', 'sun']" />
+                <font-awesome-icon v-if="colour === ColourMode.LIGHT" :icon="['fas', 'moon']" />
             </p>
         </div>
         <div
-            class="level is-vertical display-mobile fixed_position"
+            class="level is-vertical display-mobile fixed-position"
             v-bind:class="{ display: !displayHamburguerMenu }"
         >
-            <p class="is-size-5 clickable level-right">
+            <p @click="disableMenuDisplay" class="is-size-5 clickable level-right">
                 <router-link to="/blog">blog</router-link>
             </p>
 
-            <p
-                @click="toggleColourMode"
-                class="is-size-5 clickable level-right"
-            >
-                <font-awesome-icon
-                    v-if="colour === ColourMode.DARK"
-                    :icon="['fas', 'sun']"
-                />
-                <font-awesome-icon
-                    v-if="colour === ColourMode.LIGHT"
-                    :icon="['fas', 'moon']"
-                />
+            <p @click="toggleColourMode" class="is-size-5 clickable level-right">
+                <font-awesome-icon v-if="colour === ColourMode.DARK" :icon="['fas', 'sun']" />
+                <font-awesome-icon v-if="colour === ColourMode.LIGHT" :icon="['fas', 'moon']" />
             </p>
         </div>
     </nav>
@@ -72,15 +62,15 @@
     background-color: var(--caret-colour);
     color: var(--caret-colour);
     content: 'Tiago Lima';
-    animation: highlightAnim 200ms 1 forwards;
-    animation-timing-function: cubic-bezier(0.72, -0.03, 0.4, 1.57);
+    animation: highlightAnim 150ms 1 forwards;
+    animation-timing-function: cubic-bezier(0.72, -0.03, 0.4, 1.27);
     transform-origin: 100%;
     opacity: 0.9;
 }
 
 @keyframes highlightAnim {
     from {
-        transform: translate(7px, 0px) scale(0, 0.6);
+        transform: translate(7px, 5px) scale(0, 0.6);
     }
     to {
         transform: translate(7px, 0px) scale(1.1, 0.6);
@@ -105,6 +95,12 @@
     }
 }
 
+.eaten-hamburger {
+    color: inherit;
+    height: 36px;
+    width: 24px;
+}
+
 .level-left {
     padding-left: 12px;
 }
@@ -117,15 +113,35 @@
     margin-left: auto;
 }
 
-.fixed_position {
+.fixed-position {
     position: fixed;
     left: 0;
     right: 0;
+    top: 57px;
     z-index: 2;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     padding-right: 40px;
-    background-color: inherit;
+}
+
+.bounce-enter-active {
+    animation: bounce-in 0.5s;
+}
+
+.bounce-leave-active {
+    animation: bounce-in 0.5s reverse;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 @media only screen and (max-width: 768px) {

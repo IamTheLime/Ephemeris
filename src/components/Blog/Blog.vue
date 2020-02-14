@@ -1,9 +1,7 @@
 <template>
     <!-- Main container -->
-    <div class="tile is-parent is-vertical align-center">
-        <p class="subtitle has-text-centered">
-            Mandatory this page is under construction info!
-        </p>
+    <div class="tile is-parent is-vertical align-center is-flex">
+        <p class="subtitle has-text-centered">Mandatory this page is under construction warning!</p>
         <img
             src="https://media.giphy.com/media/26DN17HQkRQZt309W/giphy.gif"
             height="460px"

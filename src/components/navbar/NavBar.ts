@@ -14,7 +14,14 @@ export default class NavBar extends Vue {
         return ColourMode;
     }
 
+    disableMenuDisplay() {
+        this.displayHamburguerMenu = this.displayHamburguerMenu
+            ? !this.displayHamburguerMenu
+            : this.displayHamburguerMenu;
+    }
+
     toggleColourMode() {
         StyleModule.toggle();
+        this.displayHamburguerMenu = !this.displayHamburguerMenu;
     }
 }
